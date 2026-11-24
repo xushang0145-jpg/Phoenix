@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mockup · 竞品情报周报</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+    --accent:#2563eb; --accent2:#0ea5e9; --ok:#10b981; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:24px}
+  .mockbar{max-width:920px;margin:0 auto 14px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
+  .badge{background:#eef2ff;color:#4338ca;border:1px solid #c7d2fe;border-radius:999px;padding:2px 10px;font-weight:600}
+  .page{max-width:920px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:36px 40px;box-shadow:0 10px 30px rgba(17,24,39,.06)}
+  header.top{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
+  .kicker{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:700;text-transform:uppercase}
+  h1{font-size:26px;margin:6px 0 4px}
+  .sub{font-size:13px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+  .stat{background:linear-gradient(180deg,#fbfdff,#f2f6fd);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .stat .n{font-size:24px;font-weight:800;color:var(--accent)}
+  .stat .l{font-size:12px;color:var(--muted)}
+  section{margin-bottom:28px}
+  h2{font-size:16px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:14px}
+  h2 .no{display:inline-flex;width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;font-size:12px;align-items:center;justify-content:center}
+  .highlights li{margin:6px 0 6px 18px;font-size:14px}
+  .news{display:flex;flex-direction:column;gap:10px}
+  .news .item{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px}
+  .tag{flex:0 0 auto;font-size:11px;font-weight:700;color:#fff;background:var(--accent2);border-radius:6px;padding:2px 8px}
+  .news .t{font-size:14px;font-weight:600}
+  .news .m{font-size:12px;color:var(--muted)}
+  .chart-card{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fcfdff}
+  .caption{font-size:12.5px;color:var(--muted);margin-top:10px;border-left:3px solid var(--accent);padding-left:10px}
+  .bars .row{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
+  .bars .name{width:96px;color:var(--muted)}
+  .bars .track{flex:1;background:#eef2f7;border-radius:6px;height:14px;overflow:hidden}
+  .bars .fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:6px}
+  .bars .val{width:42px;text-align:right;font-weight:700;font-size:12px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:center}
+  th{background:#f8fafc;font-weight:600;color:#374151}
+  td.rowh{text-align:left;font-weight:600;background:#fafbfd}
+  .h0{background:#f8fafc}.h1{background:#e8f1fd}.h2{background:#cfe2fb}.h3{background:#a9cbf7}.h4{background:#7fb0f0;color:#fff}.h5{background:#4f8fe8;color:#fff}
+  .implies li{margin:8px 0 8px 18px;font-size:14px}
+  .implies b{color:var(--accent)}
+  .appendix{font-size:12.5px;color:var(--muted)}
+  .appendix a{color:var(--accent);text-decoration:none;margin-right:14px}
+  footer{margin-top:26px;padding-top:14px;border-top:1px dashed var(--line);font-size:11.5px;color:#9ca3af}
+  .legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-bottom:6px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+  @media(max-width:680px){.page{padding:22px}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+  <div class="mockbar">
+    <span class="badge">MOCKUP · v0.0.0</span>
+    <span>wireframe / 仅示意布局与信息层级，数据为虚构</span>
+  </div>
+
+  <div class="page">
+    <header class="top">
+      <div class="kicker">Competitive Intelligence · Weekly</div>
+      <h1>工业自动化竞品情报周报</h1>
+      <div class="sub">统计周期：2026-10-27 ~ 2026-11-23　｜　覆盖竞品 5 家 · 产品线 5 条　｜　生成于 2026-11-24</div>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><div class="n">812</div><div class="l">本期情报条目</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">覆盖竞品</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">数据源</div></div>
+      <div class="stat"><div class="n">14</div><div class="l">识别主题</div></div>
+    </div>
+
+    <section>
+      <h2><span class="no">1</span>本期要点</h2>
+      <ul class="highlights">
+        <li>魏德米勒在<b>储能连接器</b>方向本月发布 3 款新品，为近半年最密集。</li>
+        <li>泰科 TE 在工业以太网的产品发布节奏环比放缓，主题转向<b>轻量化</b>。</li>
+        <li>“直流快充 / 高防护等级”成为本周出现频次最高的技术主题（+38%）。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="no">2</span>重点竞品动态</h2>
+      <div class="news">
+        <div class="item"><span class="tag">魏德米勒</span><div><div class="t">发布新一代高防护等级储能连接器系列</div><div class="m">2026-11-19 · 官网新闻 · 产品线：EV 充电</div></div></div>
+        <div class="item"><span class="tag">万可</span><div><div class="t">推出面向工业以太网的紧凑型端子方案</div><div class="m">2026-11-15 · 行业媒体 · 产品线：工业以太网</div></div></div>
+        <div class="item"><span class="tag">哈亭</span><div><div class="t">汉诺威展会发布模块化连接器平台</div><div class="m">2026-11-12 · 展会资讯 · 产品线：工业连接器</div></div></div>
+        <div class="item"><span class="tag">泰科 TE</span><div><div class="t">公布面向新能源场景的连接方案白皮书</div><div class="m">2026-11-08 · 官网新闻 · 产品线：电源</div></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="no">3</span>产品线热度分布</h2>
+      <div class="chart-card">
+        <div class="bars">
+          <div class="row"><span class="name">工业连接器</span><span class="track"><span class="fill" style="width:88%"></span></span><span class="val">186</span></div>
+          <div class="row"><span class="name">EV 充电</span><span class="track"><span class="fill" style="width:72%"></span></span><span class="val">152</span></div>
+          <div class="row"><span class="name">工业以太网</span><span class="track"><span class="fill" style="width:61%"></span></span><span class="val">129</span></div>
+          <div class="row"><span class="name">电源</span><span class="track"><span class="fill" style="width:49%"></span></span><span class="val">103</span></div>
+          <div class="row"><span class="name">端子</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="val">80</span></div>
+        </div>
+        <div class="caption">结论：工业连接器与 EV 充电合计占本期情报的 62%，是竞品投入最集中的两条产品线。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="no">4</span>技术主题趋势</h2>
+      <div class="chart-card">
+        <div class="legend"><span><i style="background:#2563eb"></i>魏德米勒</span><span><i style="background:#0ea5e9"></i>万可</span></div>
+        <svg viewBox="0 0 640 200" width="100%" height="200" role="img" aria-label="月度发布频率趋势">
+          <line x1="40" y1="170" x2="610" y2="170" stroke="#e5e7eb"/>
+          <line x1="40" y1="120" x2="610" y2="120" stroke="#f0f2f5"/>
+          <line x1="40" y1="70" x2="610" y2="70" stroke="#f0f2f5"/>
+          <line x1="40" y1="30" x2="610" y2="30" stroke="#f0f2f5"/>
+          <polyline fill="none" stroke="#2563eb" stroke-width="2.5" points="40,135.3 91,118 142,126.7 193,100.7 244,109.3 295,92 346,118 397,83.3 448,66 499,74.7 550,48.7 601,57.3"/>
+          <polyline fill="none" stroke="#0ea5e9" stroke-width="2.5" points="40,152.7 91,144 142,135.3 193,144 244,126.7 295,135.3 346,118 397,126.7 448,109.3 499,118 550,100.7 601,92"/>
+          <text x="40" y="188" font-size="10" fill="#9ca3af">01</text>
+          <text x="142" y="188" font-size="10" fill="#9ca3af">03</text>
+          <text x="244" y="188" font-size="10" fill="#9ca3af">05</text>
+          <text x="346" y="188" font-size="10" fill="#9ca3af">07</text>
+          <text x="448" y="188" font-size="10" fill="#9ca3af">09</text>
+          <text x="550" y="188" font-size="10" fill="#9ca3af">11</text>
+          <text x="6" y="34" font-size="10" fill="#9ca3af">15</text>
+          <text x="6" y="174" font-size="10" fill="#9ca3af">0</text>
+        </svg>
+        <div class="caption">结论：魏德米勒发布频率自年中持续走高，11 月达峰值；万可则平稳爬升。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="no">5</span>竞品 × 产品线对比矩阵</h2>
+      <div class="chart-card">
+        <table>
+          <tr><th>竞品 \ 产品线</th><th>工业连接器</th><th>端子</th><th>工业以太网</th><th>电源</th><th>EV 充电</th></tr>
+          <tr><td class="rowh">魏德米勒</td><td class="h5">5</td><td class="h3">3</td><td class="h2">2</td><td class="h2">2</td><td class="h4">4</td></tr>
+          <tr><td class="rowh">万可</td><td class="h3">3</td><td class="h5">5</td><td class="h3">3</td><td class="h1">1</td><td class="h1">1</td></tr>
+          <tr><td class="rowh">哈亭</td><td class="h5">5</td><td class="h2">2</td><td class="h2">2</td><td class="h1">1</td><td class="h2">2</td></tr>
+          <tr><td class="rowh">泰科 TE</td><td class="h4">4</td><td class="h2">2</td><td class="h4">4</td><td class="h3">3</td><td class="h2">2</td></tr>
+          <tr><td class="rowh">西门子</td><td class="h2">2</td><td class="h2">2</td><td class="h5">5</td><td class="h3">3</td><td class="h2">2</td></tr>
+        </table>
+        <div class="caption">结论：各家在优势产品线上高度集中；EV 充电是魏德米勒相对领先、其他竞品尚未发力的空档。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="no">6</span>对我方启示</h2>
+      <ol class="implies">
+        <li><b>重点跟踪：</b>将魏德米勒在储能/EV 连接器的动作设为高频监测对象，缩短跟单周期。</li>
+        <li><b>机会识别：</b>EV 充电产品线竞品投入普遍偏低，可评估我方差异化切入空间。</li>
+        <li><b>技术预警：</b>“高防护等级 + 直流快充”主题快速升温，建议同步技术情报团队做专题分析。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2><span class="no">7</span>附录 · 原始来源</h2>
+      <div class="appendix">
+        <a href="#">[1] 魏德米勒官网新闻 · 2026-11-19</a>
+        <a href="#">[2] 万可新闻 · 2026-11-15</a>
+        <a href="#">[3] 工博会资讯 · 2026-11-12</a>
+        <a href="#">[4] 泰科白皮书 · 2026-11-08</a>
+      </div>
+    </section>
+
+    <footer>
+      数据来源：竞品官网 Newsroom、行业媒体、展会资讯（仅公开数据）。采集遵循低频、限速原则，不采集个人隐私。<br/>
+      本页为 v0.0.0 设计原型，数据为示意，非真实情报。
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.placeholder
+.venv/
+__pycache__/
+*.pyc
+.env
+data/raw/
+
+# trae env artifacts
+.trae-html-share-packages/

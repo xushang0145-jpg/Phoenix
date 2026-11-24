@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mockup · 系统架构</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#fff; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+    --accent:#2563eb; --accent2:#0ea5e9; --ok:#10b981; --violet:#7c3aed;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.55;padding:24px}
+  .mockbar{max-width:1120px;margin:0 auto 14px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+  .badge{background:#eef2ff;color:#4338ca;border:1px solid #c7d2fe;border-radius:999px;padding:2px 10px;font-weight:600}
+  .wrap{max-width:1120px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 34px;box-shadow:0 10px 30px rgba(17,24,39,.06)}
+  h1{font-size:23px;margin-bottom:4px}
+  .sub{font-size:13px;color:var(--muted);margin-bottom:26px}
+  .lane{margin-bottom:28px}
+  .lane h2{font-size:14px;display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .lane h2 .pill{font-size:11px;background:#eef4ff;color:var(--accent);border:1px solid #d8e4fb;border-radius:999px;padding:2px 10px;font-weight:600}
+  .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+  .node{flex:1 1 130px;min-width:120px;border:1px solid var(--line);border-radius:12px;padding:14px;background:linear-gradient(180deg,#fbfdff,#f4f8fe);position:relative}
+  .node .ic{font-size:11px;font-weight:700;color:#fff;background:var(--accent);border-radius:6px;display:inline-block;padding:1px 7px;margin-bottom:8px}
+  .node.alt .ic{background:var(--accent2)}
+  .node.ai .ic{background:var(--violet)}
+  .node h3{font-size:13.5px;margin-bottom:6px}
+  .node ul{list-style:none;font-size:12px;color:var(--muted)}
+  .node li{padding:1.5px 0;padding-left:11px;position:relative}
+  .node li::before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:#cbd5e1}
+  .arrow{flex:0 0 auto;display:flex;align-items:center;color:#b6c2d1;font-size:20px;font-weight:700}
+  .divider{height:1px;background:var(--line);margin:6px 0 20px}
+  .strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:8px}
+  .chip{border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:12px;background:#fcfdff}
+  .chip b{display:block;font-size:12.5px;margin-bottom:2px}
+  .chip span{color:var(--muted)}
+  .note{margin-top:16px;font-size:12px;color:var(--muted);background:#f8fafc;border:1px dashed var(--line);border-radius:10px;padding:10px 12px}
+  @media(max-width:760px){.arrow{display:none}.strip{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+  <div class="mockbar">
+    <span class="badge">MOCKUP · v0.0.0</span>
+    <span>系统架构与数据流水线（离线批处理 + 在线问答）</span>
+  </div>
+
+  <div class="wrap">
+    <h1>Industrial Intel Monitor · 架构图</h1>
+    <div class="sub">一条离线批处理流水线负责“采集 → 加工 → 报告”，一条在线问答链路复用其数据资产提供 RAG 问答。</div>
+
+    <!-- 离线流水线 -->
+    <div class="lane">
+      <h2>离线批处理流水线 <span class="pill">Batch · 日/周调度</span></h2>
+      <div class="flow">
+        <div class="node alt"><span class="ic">01</span><h3>数据源</h3><ul><li>竞品官网 Newsroom</li><li>RSS</li><li>行业媒体列表页</li><li>展会资讯</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node alt"><span class="ic">02</span><h3>采集层</h3><ul><li>限速 / 重试</li><li>无头浏览器</li><li>原始页面缓存</li><li>增量与去重</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node"><span class="ic">03</span><h3>清洗治理</h3><ul><li>正文抽取</li><li>精确+近似去重</li><li>日期/语言解析</li><li>竞品/产品线打标</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node ai"><span class="ic">04</span><h3>AI 加工</h3><ul><li>摘要</li><li>实体抽取</li><li>Embedding</li><li>主题聚类</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node"><span class="ic">05</span><h3>统一存储</h3><ul><li>情报条目表</li><li>主题表</li><li>运行日志</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node"><span class="ic">06</span><h3>分析 &amp; 报告</h3><ul><li>时序 / 热度</li><li>主题趋势</li><li>对比矩阵</li><li>HTML 报告</li></ul></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 在线问答 -->
+    <div class="lane">
+      <h2>在线问答链路 <span class="pill">Online · RAG · v0.1+</span> <span style="font-size:11px;color:#b45309;font-weight:400">（v0.0.0 暂不实现）</span></h2>
+      <div class="flow">
+        <div class="node"><span class="ic">A</span><h3>用户提问</h3><ul><li>自然语言</li><li>竞品/产品线/时间过滤</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node ai"><span class="ic">B</span><h3>向量检索</h3><ul><li>查询向量化</li><li>Top-K 证据召回</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node ai"><span class="ic">C</span><h3>证据增强</h3><ul><li>上下文拼装</li><li>来源标记</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node ai"><span class="ic">D</span><h3>LLM 生成</h3><ul><li>带引用作答</li><li>低置信度兜底</li></ul></div>
+        <div class="arrow">→</div>
+        <div class="node"><span class="ic">E</span><h3>答案 + 来源</h3><ul><li>结论</li><li>可追溯依据</li></ul></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 style="font-size:14px;margin-bottom:12px">核心数据模型</h2>
+    <div class="strip">
+      <div class="chip"><b>Intel Item</b><span>标题/正文/摘要/日期/语言/来源/链接</span></div>
+      <div class="chip"><b>Competitor</b><span>名称/别名/官网/关注产品线</span></div>
+      <div class="chip"><b>Source</b><span>类型/URL/解析规则/频率</span></div>
+      <div class="chip"><b>Topic</b><span>主题名/关键词/关联情报数</span></div>
+      <div class="chip"><b>Report</b><span>周期/统计/图表/结论/启示</span></div>
+    </div>
+
+    <div class="note">
+      支撑能力贯穿全链路：<b>配置驱动</b>（竞品/源/产品线）· <b>AI 结果缓存</b>（控成本）· <b>运行日志</b>（条数/耗时/失败）· <b>合规</b>（公开数据、限速、不采隐私、报告注明来源）。
+    </div>
+  </div>
+</body>
+</html>

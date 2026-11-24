@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>v0.0.0 规格评审 · Industrial Intel Monitor</title>
+<style>
+  :root{--bg:#f5f7fb;--card:#fff;--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--accent2:#0ea5e9;--ok:#10b981;--warn:#f59e0b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:36px 24px}
+  .wrap{max-width:1000px;margin:0 auto}
+  .kicker{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:700;text-transform:uppercase}
+  h1{font-size:26px;margin:6px 0 6px}
+  .sub{color:var(--muted);font-size:14px;margin-bottom:26px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;transition:.15s;box-shadow:0 4px 14px rgba(17,24,39,.04)}
+  a.card:hover{border-color:#bfd3f5;transform:translateY(-2px);box-shadow:0 10px 24px rgba(37,99,235,.10)}
+  .card .ico{width:36px;height:36px;border-radius:10px;background:#eef4ff;color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
+  .card h3{font-size:15px;margin-bottom:4px}
+  .card p{font-size:12.5px;color:var(--muted)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;box-shadow:0 4px 14px rgba(17,24,39,.04)}
+  .panel h2{font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .panel h2 .no{width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;font-size:12px;display:inline-flex;align-items:center;justify-content:center}
+  ul.files{list-style:none;font-size:13.5px}
+  ul.files li{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:12px}
+  ul.files li:last-child{border-bottom:0}
+  ul.files code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:#334155;background:#f1f5f9;padding:1px 7px;border-radius:6px}
+  .st{font-size:11.5px;border-radius:999px;padding:1px 9px;font-weight:600}
+  .st.done{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
+  .st.draft{background:#fffbeb;color:#b45309;border:1px solid #fde68a}
+  ol.q{font-size:13.5px;margin-left:20px}
+  ol.q li{padding:5px 0}
+  ol.q b{color:var(--ink)}
+  .hint{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .tag{font-size:11.5px;background:#f1f5f9;color:#475569;border-radius:6px;padding:2px 9px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="kicker">Spec-Driven Development · spec-kit</div>
+    <h1>Industrial Intel Monitor · v0.0.0</h1>
+    <div class="sub">功能规格、需求质量清单与界面原型（Draft，待确认）。确认后进入 <code>/speckit-plan</code>。</div>
+
+    <div class="grid">
+      <a class="card" href="report.html">
+        <div class="ico">报</div>
+        <h3>情报报告页</h3>
+        <p>要点 / 竞品动态 / 产品线热度 / 主题趋势 / 对比矩阵 / 我方启示。</p>
+      </a>
+      <a class="card" href="rag-qa.html">
+        <div class="ico">问</div>
+        <h3>情报问答（RAG）</h3>
+        <p><span style="color:#b45309">v0.0.0 暂不实现（v0.1+ 预留）</span> · 筛选 + 对话，答案带来源引用。</p>
+      </a>
+      <a class="card" href="architecture.html">
+        <div class="ico">架</div>
+        <h3>系统架构</h3>
+        <p>离线批处理流水线 + 在线问答链路 + 核心数据模型。</p>
+      </a>
+    </div>
+
+    <div class="panel">
+      <h2><span class="no">1</span>v0.0.0 文档清单</h2>
+      <ul class="files">
+        <li><span><code>spec.md</code>　功能规格（用户场景 / 功能需求 / 成功标准 / 假设）</span><span class="st draft">Draft</span></li>
+        <li><span><code>checklists/requirements.md</code>　需求质量评审清单</span><span class="st draft">Pending</span></li>
+        <li><span><code>mockups/report.html</code>　情报报告原型</span><span class="st done">Ready</span></li>
+        <li><span><code>mockups/rag-qa.html</code>　RAG 问答原型</span><span class="st done">Ready</span></li>
+        <li><span><code>mockups/architecture.html</code>　架构图</span><span class="st done">Ready</span></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2><span class="no">2</span>待确认决策（阻塞 plan）</h2>
+      <ol class="q">
+        <li><b>Q1 报告形态</b>：静态 HTML（建议）/ PDF / 交互仪表盘</li>
+        <li><b>Q2 RAG 是否纳入 v0.0.0</b>：<span style="color:#047857;font-weight:600">已确认不纳入</span>，移至 v0.1+</li>
+        <li><b>Q3 竞品名单</b>：魏德米勒 / 万可 WAGO / 哈亭 Harting / 泰科 TE / 西门子</li>
+        <li><b>Q4 LLM 选型</b>：云端 API（带缓存）/ 本地模型</li>
+        <li><b>Q5 摘要长度上限</b>：建议 80–120 字</li>
+      </ol>
+      <div class="hint">这些项在 spec.md 中以 <code>[NEEDS CLARIFICATION]</code> 标注，确认后我会闭合并进入 plan。</div>
+    </div>
+
+    <div class="panel">
+      <h2><span class="no">3</span>下一步（spec-kit 流程）</h2>
+      <div class="row">
+        <span class="tag">1. 评审 spec / requirements / mockups</span>
+        <span class="tag">2. /speckit-clarify 闭合 Q1–Q5</span>
+        <span class="tag">3. /speckit-plan 产出技术方案</span>
+        <span class="tag">4. /speckit-tasks 拆任务</span>
+        <span class="tag">5. /speckit-implement 实现</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
